@@ -11,7 +11,7 @@ import UIKit
 /**
  Define badge anchor
  **/
-public enum MIAnchor{
+public enum MIAnchor {
     case TopLeft(topOffset : CGFloat, leftOffset : CGFloat)
     case TopRight(topOffset : CGFloat, rightOffset : CGFloat)
     case BottomLeft(bottomOffset : CGFloat, leftOffset : CGFloat)
@@ -42,7 +42,7 @@ open class MIBadgeButton: UIButton {
     @IBInspectable
     open var cornerRadiusFactor : CGFloat = 2{
         
-        didSet{
+        didSet {
             setupBadgeViewWithString(badgeText: badgeString)
         }
     }
@@ -53,7 +53,7 @@ open class MIBadgeButton: UIButton {
     **/
     fileprivate var innerVerticalMargin : CGFloat = 5.0{
         
-        didSet{
+        didSet {
             setupBadgeViewWithString(badgeText: badgeString)
         }
     }
@@ -64,7 +64,7 @@ open class MIBadgeButton: UIButton {
      **/
     fileprivate var innerHorizontalMargin : CGFloat = 10.0{
         
-        didSet{
+        didSet {
             setupBadgeViewWithString(badgeText: badgeString)
         }
     }
@@ -239,7 +239,7 @@ open class MIBadgeButton: UIButton {
      Note: badgeEdgeInsets are taking into count when calculate position
      **/
     open var badgeAnchor : MIAnchor = .TopRight(topOffset: 0.0, rightOffset: 0.0){
-        didSet{
+        didSet {
             setupBadgeViewWithString(badgeText: badgeString)
         }
     }
@@ -258,7 +258,7 @@ open class MIBadgeButton: UIButton {
      4 = Center
      **/
     fileprivate var anchorIndex : Int = 0{
-        didSet{
+        didSet {
             
             switch anchorIndex {
             case 0:
@@ -322,7 +322,7 @@ open class MIBadgeButton: UIButton {
      **/
     @IBInspectable
     open var leftOffset : CGFloat = 0{
-        didSet{
+        didSet {
             
             //get anchor of index and assign to anchorIndex
             //to trigger view to update
@@ -343,7 +343,7 @@ open class MIBadgeButton: UIButton {
      **/
     @IBInspectable
     open var rightOffset : CGFloat = 0{
-        didSet{
+        didSet {
             let ach = anchor
             self.anchorIndex = ach
         }
@@ -361,7 +361,7 @@ open class MIBadgeButton: UIButton {
      **/
     @IBInspectable
     open var topOffset : CGFloat = 0{
-        didSet{
+        didSet {
             let ach = anchor
             self.anchorIndex = ach
         }
@@ -379,7 +379,7 @@ open class MIBadgeButton: UIButton {
      **/
     @IBInspectable
     open var buttomOffset : CGFloat = 0{
-        didSet{
+        didSet {
             let ach = anchor
             self.anchorIndex = ach
         }
@@ -442,7 +442,11 @@ open class MIBadgeButton: UIButton {
     fileprivate func setupBadgeViewWithString(badgeText: String?){
         badgeLabel.clipsToBounds = true
         badgeLabel.text = badgeText
-        badgeLabel.font = UIFont.systemFont(ofSize: 12)
+        if #available(iOS 8.2, *) {
+            badgeLabel.font = UIFont.systemFont(ofSize: 14, weight: .medium)
+        } else {
+            badgeLabel.font = UIFont.systemFont(ofSize: 12)
+        }
         badgeLabel.textAlignment = .center
         badgeLabel.sizeToFit()
         let badgeSize = badgeLabel.bounds.size
