@@ -10,14 +10,8 @@ MIBadgeButton is badge button written in Swift with high UITableView/UICollectio
 
 MIBadgeButton is available through [CocoaPods](http://cocoapods.org), to install
 it simply add the following line to your Podfile:
-  
-    # Swift 3
-    use_frameworks!
-    pod "MIBadgeButton-Swift", :git => 'https://github.com/mustafaibrahim989/MIBadgeButton-Swift.git', :branch => 'master'
-    
-    # Swift 2
-    use_frameworks!
-    pod "MIBadgeButton-Swift", :git => 'https://github.com/mustafaibrahim989/MIBadgeButton-Swift.git', :branch => 'swift2'
+
+    pod "MIBadgeButton", :git => 'https://github.com/vinczebalazs/MIBadgeButton-Swift.git', :branch => 'master'
 
 Add MIBadgeButton to Storyboard or init with frame
 
@@ -48,12 +42,10 @@ button.badgeBackgroundColor = UIColor.redColor()
 
 Mustafa Ibrahim, mustafa.ibrahim989@gmail.com
 
-Notes
-============
+# Notes
 
 Designed for iOS 8.
 
 ## License
 
 MIBadgeButton is available under the MIT license. See the LICENSE file for more info.
-
